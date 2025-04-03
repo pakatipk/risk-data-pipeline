@@ -10,7 +10,7 @@ PROJECT_KEY = "DGRC"
 auth = HTTPBasicAuth(EMAIL, API_TOKEN)
 headers = { "Accept": "application/json" }
 
-url = f"{JIRA_URL}/rest/api/3/project/search"
+url = f"{JIRA_URL}/rest/api/3/project"
 response = requests.get(url, headers=headers, auth=auth)
 
 
