@@ -12,7 +12,7 @@ auth = HTTPBasicAuth(EMAIL, API_TOKEN)
 headers = { "Accept": "application/json" }
 
 params = {
-    "jql": "project=DGRC"
+    "jql": "project=DGRC",
     "maxResults": 100,
     "fields": "*all"
 }
