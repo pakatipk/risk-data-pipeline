@@ -12,9 +12,9 @@ auth = HTTPBasicAuth(EMAIL, API_TOKEN)
 headers = { "Accept": "application/json" }
 
 params = {
-    "jql": f"project={PROJECT_KEY}",
-    "maxResults": 10,
-    "fields": "summary,status,priority,resolutiondate"
+    "jql": "project=DGRC"
+    "maxResults": 100,
+    "fields": "*all"
 }
 
 response = requests.get(url, headers=headers, auth=auth, params=params)
