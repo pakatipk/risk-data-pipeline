@@ -1,8 +1,9 @@
 import requests
 from requests.auth import HTTPBasicAuth
+import os
 
-email = "kasai.pakatip@gmail.com"
-api_token = "ATATT3xFfGF04ZB_sBngfQEtujo-YObOeVbvaeqQZhQRXVaTlQiVzlbZ633V5VS01m7HpT9OyM5itj4fMxfTHxkrBUA9iUE4RMuHR9cdwX4v0zNxlCVUveEvsvPmASgeO30fQZKmW98sEMqtguF1t_g5hAHIW2f3JGnEvmOM34aojxOHt7dR1LY=8408BABE"
+EMAIL = os.getenv("JIRA_EMAIL")
+API_TOKEN = os.getenv("JIRA_API_TOKEN")
 field_id = "customfield_10038"  # Risk Type field
 
 url = f"https://pkasai.atlassian.net/rest/api/3/field/customfield_10041/context"

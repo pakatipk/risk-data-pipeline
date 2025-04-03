@@ -1,12 +1,13 @@
 import requests
 import pandas as pd
+import os
 from requests.auth import HTTPBasicAuth
 
 # Jira credentials and project info
 JIRA_DOMAIN = "https://pkasai.atlassian.net"
 PROJECT_KEY = "DGRC"
-EMAIL = "kasai.pakatip@gmail.com"
-API_TOKEN = "ATATT3xFfGF04ZB_sBngfQEtujo-YObOeVbvaeqQZhQRXVaTlQiVzlbZ633V5VS01m7HpT9OyM5itj4fMxfTHxkrBUA9iUE4RMuHR9cdwX4v0zNxlCVUveEvsvPmASgeO30fQZKmW98sEMqtguF1t_g5hAHIW2f3JGnEvmOM34aojxOHt7dR1LY=8408BABE"  # 🔐 Replace with your actual API token safely!
+EMAIL = os.getenv("JIRA_EMAIL")
+API_TOKEN = os.getenv("JIRA_API_TOKEN")
 
 # Load the CSV file
 df = pd.read_csv("jira_issues.csv")
