@@ -10,7 +10,14 @@ PROJECT_KEY = "DGRC"
 auth = HTTPBasicAuth(EMAIL, API_TOKEN)
 headers = { "Accept": "application/json" }
 
-url = f"{JIRA_URL}/rest/api/3/project"
+params = {
+    "jql": "project=DGRC ORDER BY created DESC",
+    "maxResults": 10,
+    "fields": "summary,status,priority,resolutiondate"
+}
+
+
+url = f"{JIRA_URL}/rest/api/3/search"
 response = requests.get(url, headers=headers, auth=auth)
 
 
