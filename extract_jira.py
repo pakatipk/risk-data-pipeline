@@ -14,4 +14,4 @@ headers = { "Accept": "application/json" }
 
 response = requests.request("GET", url, headers=headers, auth=auth)
 
-print(json.dumps(json.loads(response.text), sort_key=True, ident=4, separator=(",", ": ")))
+print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
