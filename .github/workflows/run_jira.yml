@@ -25,6 +25,6 @@ jobs:
 
       run: |
         echo "Running Jira ETL"
-        python extract_jira.py
+        python jira_tickets_retrieve.py
 
 

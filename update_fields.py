@@ -9,7 +9,7 @@ JIRA_URL = "https://pkasai.atlassian.net"
 FIELD_ID = "customfield_10046"
 
 # CSV file path (update if different)
-csv_path = "Jira Export CSV (all fields) 20250404094553.csv"
+csv_path = "jira_issues_original.csv"
 
 # Load the CSV
 df = pd.read_csv(csv_path)
