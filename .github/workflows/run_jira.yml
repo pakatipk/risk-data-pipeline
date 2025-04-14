@@ -1,0 +1,29 @@
+name: Run Jira Extract
+
+on:
+  workflow_dispatch:  # allows manual run
+
+jobs:
+  extract-jira:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install requests pandas gspread oauth2client
+
+    - name: Run script and push to Google Sheets
+      env:
+        JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        GOOGLE_SHEET_CREDENTIALS_JSON: ${{ secrets.GOOGLE_SHEET_CREDENTIALS_JSON }}  # The secret you uploaded earlier
+      run: |
+        echo "Running Jira ETL and pushing data to Google Sheets"
+        python extract_jira.py  # Your Python script to extract Jira data and push it to Google Sheets

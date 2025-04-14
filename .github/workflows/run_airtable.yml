@@ -1,0 +1,30 @@
+name: Run Airtable Extract
+
+on:
+  workflow_dispatch:
+
+jobs:
+  extract-airtable:
+    runs-on: ubuntu-latest  # The GitHub runner environment
+    
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # You can change the version if needed
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas gspread oauth2client
+
+    - name: Run the script to fetch data from Airtable and update Google Sheets
+
+      env:
+        AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}  # Set in your repository secrets
+        GOOGLE_SHEET_CREDENTIALS_JSON: ${{ secrets.GOOGLE_SHEET_CREDENTIALS_JSON }}  # Set in your repository secrets
+      run: |
+        python extract_airtable.py  # Path to your script file
